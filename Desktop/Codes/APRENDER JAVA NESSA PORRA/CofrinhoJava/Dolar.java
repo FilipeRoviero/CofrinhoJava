@@ -2,7 +2,6 @@ public class Dolar {
     String nome = "Dolar";
     Double valor;
     Double valorEntrada;
-    Double dolarConvertido;
 
     public Dolar() {
         this.valor = 0.0;

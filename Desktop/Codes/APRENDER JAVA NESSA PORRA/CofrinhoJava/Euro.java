@@ -19,8 +19,13 @@ public class Euro{
         return this.valor += valorEntrada;
     }
 
+    public Double euroConvertido(){
+        return getValor() * 6.24;
+    }
+
     public void info() {
         System.out.println("Moeda: " + nome);
         System.out.println("Valor: R$ " + valor);
+        System.out.println("Valor convertido: R$" + euroConvertido());
     }
 }
