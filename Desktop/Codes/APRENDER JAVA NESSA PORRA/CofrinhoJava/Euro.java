@@ -1,31 +1,22 @@
-public class Euro{
-    String nome = "Euro";
-    Double valor;
-    Double valorEntrada;
+public class Euro extends Moeda {
+    private final double taxaConversao = 6.10;
 
-    public Euro() {
-        this.valor = 0.0;
+    public Euro(double valor) {
+        super(valor);
     }
 
-    public Euro(Double valor){
-        this.valor = valor;
+    @Override
+    public double converterParaReal() {
+        return valor * taxaConversao;
     }
 
-    public Double getValor() {
-        return valor;
+    @Override
+    public String getNome() {
+        return "Euro";
     }
 
-    public Double setValor(Double valorEntrada) {
-        return this.valor += valorEntrada;
-    }
-
-    public Double euroConvertido(){
-        return getValor() * 6.24;
-    }
-
-    public void info() {
-        System.out.println("Moeda: " + nome);
-        System.out.println("Valor: R$ " + valor);
-        System.out.println("Valor convertido: R$" + euroConvertido());
+    @Override
+    public String toString() {
+        return String.format("%.2f %s", valor, getNome());
     }
 }

@@ -1,26 +1,21 @@
-public class Real {
-    String nome = "Real";
-    Double valor;
-    Double valorEntrada;
+public class Real extends Moeda {
 
-    public Real() {
-        this.valor = 0.0;
+    public Real(double valor) {
+        super(valor);
     }
 
-    public Real(Double valor){
-        this.valor = valor;
-    }
-
-    public Double getValor() {
+    @Override
+    public double converterParaReal() {
         return valor;
     }
 
-    public Double setValor(Double valorEntrada) {
-        return this.valor += valorEntrada;
+    @Override
+    public String getNome() {
+        return "Real";
     }
 
-    public void info() {
-        System.out.println("Moeda: " + nome);
-        System.out.println("Valor: R$ " + valor);
+    @Override
+    public String toString() {
+        return String.format("%.2f %s", valor, getNome());
     }
 }

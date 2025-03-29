@@ -1,31 +1,22 @@
-public class Dolar {
-    String nome = "Dolar";
-    Double valor;
-    Double valorEntrada;
+public class Dolar extends Moeda {
+    private final double taxaConversao = 5.20;
 
-    public Dolar() {
-        this.valor = 0.0;
+    public Dolar(double valor) {
+        super(valor);
     }
 
-    public Dolar(Double valor) {
-        this.valor = valor;
+    @Override
+    public double converterParaReal() {
+        return valor * taxaConversao;
     }
 
-    public Double getValor() {
-        return valor;
+    @Override
+    public String getNome() {
+        return "Dólar";
     }
 
-    public Double setValor(Double valorEntrada) {
-        return this.valor += valorEntrada;
-    }
-
-    public Double dolarConvertido(){
-        return getValor() * 5.76;
-    }
-
-    public void info() {
-        System.out.println("Moeda: " + nome);
-        System.out.println("Valor: R$ " + valor);
-        System.out.println("Valor convertido para Real: R$ " + dolarConvertido());
+    @Override
+    public String toString() {
+        return String.format("%.2f %s", valor, getNome());
     }
 }
